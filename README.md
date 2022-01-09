@@ -24,10 +24,10 @@ Project is created with:
 #### Routes 
 | Routes | HTTP Methods| Description
 |:------- |:---------------|:--------------
-| /tea      | GET                  | Displays all avengers
-| /tea      | POST               | Creates new avenger
-| /tea      | DELETE            | Deletes all avengers
-|/tea/:name| GET     | Displays a specific avenger, given its name
-|/tea/:name| DELETE | Deletes a specific avenger, given its name
+| /avenger      | GET                  | Displays all avengers
+| /avenger      | POST               | Creates new avenger
+| /avenger      | DELETE            | Deletes all avengers
+|/avenger/:name| GET     | Displays a specific avenger, given its name
+|/avenger/:name| DELETE | Deletes a specific avenger, given its name
 
 
