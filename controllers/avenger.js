@@ -1,4 +1,16 @@
 const Avenger = require('../models/avenger')
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads');
+    },
+    filename: function (req, file,cb){
+        cb(null, file.originalname);
+    },
+});
+
+const uploadImg = multer({storage:storage}).single('image');
 
 const getAllAvenger = (req, res) =>{
     Avenger.find({}, (err, data)=>{
@@ -19,7 +31,7 @@ const newAvenger = (req, res) => {
             //create a new avenger object using the avenger model and req.body
             const newAvenger = new Avenger({
                 name:req.body.name,
-                image: req.body.image, // placeholder for now
+                image: req.body.path, 
                 real_name: req.body.real_name,
                 powers: req.body.powers,
                 abilities: req.body.abilities,
@@ -77,5 +89,6 @@ module.exports = {
     newAvenger,
     deleteAllAvenger,
     getOneAvenger,
-    deleteOneAvenger
+    deleteOneAvenger,
+    uploadImg,
 };

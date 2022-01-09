@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json()); 
 
 app.use('/', routes);
+app.use('/uploads', express.static('./uploads'));
 
 
 const listener = app.listen(process.env.PORT || 3000, () => {
