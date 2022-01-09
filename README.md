@@ -7,7 +7,7 @@ The Avengers-API pays tribute to the best movie franchise in the history of film
 
 ### Technologies
 Project is created with:
-* Node
+* Node.js
 * Express
 * MongoDB
 
