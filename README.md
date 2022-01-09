@@ -3,7 +3,7 @@
 ### General info
 The Avengers-API pays tribute to the best movie franchise in the history of filmmaking. (yes, i said it)
 
-### Deployed original here: https://avengers-api-jon-cao.herokuapp.com/
+### Deployed here: https://avengers-api-jon-cao.herokuapp.com/
 
 #### The Avenger Object
 | Properties | Description | Type  |
