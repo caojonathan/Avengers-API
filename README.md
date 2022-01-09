@@ -5,6 +5,12 @@ The Avengers-API pays tribute to the best movie franchise in the history of film
 
 ### Deployed here: https://avengers-api-jon-cao.herokuapp.com/
 
+### Technologies
+Project is created with:
+* Node
+* Express
+* MongoDB
+
 #### The Avenger Object
 | Properties | Description | Type  |
 |:----------- |:---------------|:--------|
@@ -24,8 +30,4 @@ The Avengers-API pays tribute to the best movie franchise in the history of film
 |/tea/:name| GET     | Displays a specific avenger, given its name
 |/tea/:name| DELETE | Deletes a specific avenger, given its name
 
-### Technologies
-Project is created with:
-Node
-Express
-MongoDB
+
