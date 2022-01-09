@@ -8,7 +8,6 @@ const AvengerSchema = new mongoose.Schema({
     powers: String,
     abilities: String,
     actor: String,
-    comments: [{text: String, date: {type:String, default:new Date()}}]
 });
 
 const Avenger = mongoose.model('Avenger', AvengerSchema);

@@ -1,17 +1,22 @@
 const Avenger = require('../models/avenger')
 
-const getAllAvenger = (req, res, next) =>{
-    res.json({message: "GET All Avengers"});
+const getAllAvenger = (req, res) =>{
+    Avenger.find({}, (err, data)=>{
+        if(err){
+            return res.json({Error: err});
+        }
+        return res.json(data);
+    })
 };
 
 //POST avenger
 const newAvenger = (req, res) => {
-    //check if the tea name already exists in db
+    //check if the avenger name already exists in db
     Avenger.findOne({name: req.body.name}, (data) => {
 
-        //if tea not in db, add it
+        //if avenger not in db, add it
         if ( data == null ) {
-            //create a new tea object using the Tea model and req.body
+            //create a new avenger object using the avenger model and req.body
             const newAvenger = new Avenger({
                 name:req.body.name,
                 image: req.body.image, // placeholder for now
@@ -26,30 +31,45 @@ const newAvenger = (req, res) => {
                 if (err) return res.json({Error: err});
                 return res.json(data);
             });
-        //if there's an error or the tea is in db, return a message         
+        //if there's an error or the avenger is in db, return a message         
         }else{
             if(err) return res.json(`Something went wrong, please try again. ${err}`);
-            return res.json({message:"Tea already exists"});
+            return res.json({message:"Avenger already accounted for"});
         }
     });    
 };
 
 
 
-const deleteAllAvenger = (req, res, next) =>{
-    res.json({message: "DELETE All Avenger"});
+const deleteAllAvenger = (req, res) =>{
+    Avenger.deleteMany({}, err =>{
+        if(err){
+            return res.json({message:"Complete delete failed"});
+        }
+        return res.json({message: "Complete delete success"});
+    })
 };
 
-const getOneAvenger = (req, res, next) =>{
-    res.json({message: "GET One Avenger"});
+const getOneAvenger = (req, res) =>{
+    let name = req.params.name;
+    Avenger.findOne({name:name}, (err,data) =>{
+        if(err || !data){
+            return res.json({message:"Avenger Not Found"});
+        }
+        else return res.json(data);
+    })
 };
 
-const newComment = (req, res, next) =>{
-    res.json({message: "POST New Comment"});
-};
 
 const deleteOneAvenger = (req, res, next) =>{
-    res.json({message: "DELETE One Avenger"});
+    let name = req.params.name;
+
+    Avenger.deleteOne({name:name}, (err,data)=>{
+        if(err || !data){
+            return res.json({message: "Avenger not found"});
+        }
+        else return res.json({message:"Avenger Removed"})
+    });
 }; 
 
 module.exports = {
@@ -57,6 +77,5 @@ module.exports = {
     newAvenger,
     deleteAllAvenger,
     getOneAvenger,
-    newComment,
     deleteOneAvenger
 };

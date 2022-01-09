@@ -2,14 +2,12 @@ require('dotenv').config();
 const mongoose = require('mongoose')
 const express = require("express")
 const routes = require('./routes/avenger')
-const bodyParser = require("body-parser");
 
 
 const app = express();
 
 
 app.use(express.json()); 
-app.use(bodyParser.json());
 
 app.use('/', routes);
 
