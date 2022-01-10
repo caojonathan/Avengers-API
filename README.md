@@ -1,7 +1,6 @@
 ###### Avengers-API
 
-### General info
-The Avengers-API pays tribute to the best movie franchise in the history of filmmaking. (yes, i said it)
+### The Avengers-API pays tribute to the best movie franchise in the history of filmmaking. (yes, i said it)
 
 ### Deployed here: https://avengers-api-jon-cao.herokuapp.com/
 
